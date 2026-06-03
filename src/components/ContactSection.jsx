@@ -10,7 +10,7 @@ import ContactCard from "./ContactCard";
 const CONTACTS = [
   { icon: <Github size={20} />,        label: "GitHub",   value: "github.com/rami0988",             href: "https://github.com/rami0988" },
   { icon: <Mail size={20} />,          label: "Email",    value: "rami.abd.alhamed.333@gmail.com",   href: "mailto:rami.abd.alhamed.333@gmail.com" },
-  { icon: <Linkedin size={20} />,      label: "LinkedIn", value: "linkedin.com/in/rami-abd-alhamed",             href: "https://linkedin.com/in/rami-abd-alhamed" },
+  { icon: <Linkedin size={20} />,      label: "LinkedIn", value: "linkedin.com/in/rami-abd-alhamed-442986204",             href: "https://linkedin.com/in/rami-abd-alhamed-442986204" },
   { icon: <MessageCircle size={20} />, label: "WhatsApp", value: "+963 988 795 032",                 href: "https://wa.me/963988795032" },
 ];
 
