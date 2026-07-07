@@ -1,16 +1,62 @@
-# React + Vite
+# Rami Abdul Hamid — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page developer portfolio. React 19 + Vite + Tailwind CSS v4 + Framer Motion.
+Dark mode by default with a persisted light-mode toggle, fully responsive
+(360px → 1440px+), keyboard navigable, reduced-motion aware.
 
-Currently, two official plugins are available:
+## Editing content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Everything editable lives in **`src/data/content.js`** — name, links, bio,
+skills, projects, and the experience timeline.
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev        # http://localhost:5173
+```
 
-## Expanding the ESLint configuration
+Other scripts:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run build      # production build → dist/
+npm run preview    # serve the production build locally
+npm run lint       # eslint
+```
+
+## Deploy to Vercel
+
+Option A — Git integration (recommended):
+
+1. Push this repo to GitHub.
+2. On [vercel.com](https://vercel.com) → **Add New → Project** → import the repo.
+3. Vercel auto-detects Vite. Accept the defaults
+   (build: `vite build`, output: `dist`) and hit **Deploy**.
+
+Option B — CLI:
+
+```bash
+npm i -g vercel
+vercel           # preview deployment
+vercel --prod    # production
+```
+
+## Structure
+
+```
+src/
+├── data/content.js        # ← all text, links, projects, timeline
+├── hooks/useTheme.js      # dark/light toggle, persisted to localStorage
+├── components/
+│   ├── Navbar.jsx         # glass nav, scroll progress, active section, mobile menu
+│   ├── Hero.jsx           # aurora background, rotating headline, CTAs
+│   ├── About.jsx          # bio, portrait, badges, stats
+│   ├── Skills.jsx         # grouped skill cards
+│   ├── Projects.jsx       # case-study cards + earlier builds
+│   ├── ProjectModal.jsx   # problem → solution → result dialog
+│   ├── Experience.jsx     # vertical timeline
+│   ├── Contact.jsx        # mailto form + channels
+│   ├── Footer.jsx
+│   └── ui/                # Reveal, SectionHeader, Magnetic, BrandIcons
+└── index.css              # design tokens (light/dark), fonts, aurora keyframes
+```

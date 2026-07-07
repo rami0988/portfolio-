@@ -1,1 +1,125 @@
+/* ------------------------------------------------------------------ */
+/*  Design system — Tailwind v4                                        */
+/*  Semantic tokens live on :root / .dark and are exposed to Tailwind  */
+/*  via @theme inline, so `bg-surface`, `text-muted`, etc. flip with   */
+/*  the theme automatically.                                           */
+/* ------------------------------------------------------------------ */
+
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+
+/* Class-based dark mode: `dark:` utilities react to .dark on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Light theme */
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --elevated: #efefec;
+  --border: rgba(16, 20, 26, 0.12);
+  --text: #14181f;
+  --muted: #545e6d;
+  --accent: #4d7c0f;            /* readable lime on light bg (AA on white) */
+  --accent-fill: #a3e635;       /* decorative fills / bars */
+  --btn-bg: #14181f;            /* primary button */
+  --btn-text: #f7f7f5;
+  --glow: rgba(101, 163, 13, 0.18);
+}
+
+.dark {
+  --bg: #0a0c10;
+  --surface: #10131a;
+  --elevated: #171b24;
+  --border: rgba(232, 235, 241, 0.09);
+  --text: #e8ebf1;
+  --muted: #9aa3b2;
+  --accent: #a3e635;
+  --accent-fill: #a3e635;
+  --btn-bg: #a3e635;
+  --btn-text: #0a0c10;
+  --glow: rgba(163, 230, 53, 0.16);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-edge: var(--border);
+  --color-body: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fill: var(--accent-fill);
+  --color-btn: var(--btn-bg);
+  --color-btn-text: var(--btn-text);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchored sections clear the fixed navbar. */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: var(--accent-fill);
+  color: #0a0c10;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Hero aurora — pure CSS so it costs nothing on the main thread.     */
+/* ------------------------------------------------------------------ */
+
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(4rem, -3rem) scale(1.12); }
+  66%      { transform: translate(-3rem, 2.5rem) scale(0.94); }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+  animation: aurora-drift 24s ease-in-out infinite;
+}
+
+/* Faint blueprint grid behind the hero, faded out toward the edges. */
+.hero-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion — kill decorative animation and smooth scroll.      */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aurora-blob { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

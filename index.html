@@ -1,10 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-app</title>
+    <title>Rami Abdul Hamid — Flutter & Mobile Developer</title>
+    <meta
+      name="description"
+      content="Rami Abdul Hamid is a Flutter / mobile developer building production apps with Clean Architecture, Bloc, and Firebase. Open to international and European mobile roles."
+    />
+    <meta name="author" content="Rami Abdul Hamid" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0a0c10" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rami Abdul Hamid — Flutter & Mobile Developer" />
+    <meta
+      property="og:description"
+      content="Production mobile apps with Flutter, Clean Architecture, and Firebase. HR, energy, and job-matching platforms shipped end to end."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Set theme before first paint so there is no flash of the wrong mode.
+         Dark is the default; the toggle persists the choice in localStorage. -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light") document.documentElement.classList.remove("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
