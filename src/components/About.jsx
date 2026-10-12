@@ -6,8 +6,8 @@ import Reveal from "./ui/Reveal";
 import portrait from "../assets/me.jpg";
 
 const STACK_BADGES = [
-  "Flutter", "Dart", "Bloc", "GetX", "Firebase", "REST APIs",
-  "Clean Architecture", "Vue.js", "NestJS", "AI / LLM",
+  "Flutter", "Dart", "Bloc / Cubit", "GetX", "Firebase", "REST APIs",
+  "Clean Architecture", "HyperPay", "NFC & QR", "Localization & RTL",
 ];
 
 export default function About() {

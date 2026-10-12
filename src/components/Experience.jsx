@@ -1,4 +1,5 @@
-import { EXPERIENCE } from "../data/content";
+import { Award, Languages } from "lucide-react";
+import { EXPERIENCE, CREDENTIALS } from "../data/content";
 import SectionHeader from "./ui/SectionHeader";
 import Reveal from "./ui/Reveal";
 
@@ -33,6 +34,41 @@ export default function Experience() {
             </li>
           ))}
         </ol>
+
+        {/* Certifications & languages */}
+        <Reveal delay={0.1}>
+          <div className="mt-16 grid gap-5 md:grid-cols-2">
+            <article className="rounded-2xl border border-edge bg-bg p-6">
+              <h3 className="font-display mb-4 flex items-center gap-2.5 text-lg font-bold text-body">
+                <Award size={19} className="text-accent" aria-hidden="true" />
+                Certifications
+              </h3>
+              <ul className="space-y-2.5">
+                {CREDENTIALS.certifications.map((cert) => (
+                  <li key={cert} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                    <span aria-hidden="true" className="mt-[7px] h-1 w-3 shrink-0 rounded-full bg-accent-fill/60" />
+                    {cert}
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="rounded-2xl border border-edge bg-bg p-6">
+              <h3 className="font-display mb-4 flex items-center gap-2.5 text-lg font-bold text-body">
+                <Languages size={19} className="text-accent" aria-hidden="true" />
+                Languages
+              </h3>
+              <dl className="space-y-3">
+                {CREDENTIALS.languages.map(({ name, level }) => (
+                  <div key={name} className="flex flex-wrap items-baseline gap-x-3">
+                    <dt className="text-sm font-semibold text-body">{name}</dt>
+                    <dd className="text-sm text-muted">{level}</dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

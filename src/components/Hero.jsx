@@ -47,7 +47,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-fill opacity-60 motion-reduce:hidden" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-fill" />
           </span>
-          Open to international &amp; European mobile roles
+          Open to relocation &amp; international opportunities
         </motion.p>
 
         <motion.h1
@@ -64,8 +64,8 @@ export default function Hero() {
 
         <motion.p variants={item} className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
           {PROFILE.role} — {PROFILE.tagline}. Flutter, Clean Architecture, and
-          Bloc/GetX, with Firebase and REST backends. From first wireframe to
-          store release.
+          Bloc/GetX, with payment gateways, Firebase, and REST backends. From
+          first wireframe to store release.
         </motion.p>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">

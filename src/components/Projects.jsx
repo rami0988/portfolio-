@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Briefcase, Sun, UserSearch, ArrowUpRight, ExternalLink, Lock } from "lucide-react";
+import { Ticket, ScanLine, Briefcase, Sun, UserSearch, ArrowUpRight, ExternalLink, Lock } from "lucide-react";
 import { Github } from "./ui/BrandIcons";
 import { FEATURED_PROJECTS, MORE_PROJECTS } from "../data/content";
 import SectionHeader from "./ui/SectionHeader";
 import Reveal from "./ui/Reveal";
 import ProjectModal from "./ProjectModal";
 
-const PROJECT_ICONS = { Briefcase, Sun, UserSearch };
+const PROJECT_ICONS = { Ticket, ScanLine, Briefcase, Sun, UserSearch };
 
 export default function Projects() {
   const [selected, setSelected] = useState(null);
@@ -17,10 +17,10 @@ export default function Projects() {
       <SectionHeader
         eyebrow="Projects"
         title="Selected work"
-        lead="Three products, three industries — each one taken from problem to shipped app. Open a card for the full story."
+        lead="Five products across event ticketing, HR, clean energy, and recruitment — each taken from problem to shipped app. Open a card for the full story."
       />
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURED_PROJECTS.map((project, i) => (
           <Reveal key={project.id} delay={i * 0.1} className="h-full">
             <ProjectCard project={project} onOpen={() => setSelected(project)} />

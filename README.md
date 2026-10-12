@@ -7,7 +7,10 @@ Dark mode by default with a persisted light-mode toggle, fully responsive
 ## Editing content
 
 Everything editable lives in **`src/data/content.js`** — name, links, bio,
-skills, projects, and the experience timeline.
+skills, projects, the experience timeline, and certifications/languages.
+
+The downloadable CV is **`public/Rami_Abdul_Hamid_CV.pdf`** (linked from
+`PROFILE.cv`). Replace that file to publish a new version.
 
 ## Run locally
 
@@ -54,7 +57,7 @@ src/
 │   ├── Skills.jsx         # grouped skill cards
 │   ├── Projects.jsx       # case-study cards + earlier builds
 │   ├── ProjectModal.jsx   # problem → solution → result dialog
-│   ├── Experience.jsx     # vertical timeline
+│   ├── Experience.jsx     # vertical timeline + certifications & languages
 │   ├── Contact.jsx        # mailto form + channels
 │   ├── Footer.jsx
 │   └── ui/                # Reveal, SectionHeader, Magnetic, BrandIcons
